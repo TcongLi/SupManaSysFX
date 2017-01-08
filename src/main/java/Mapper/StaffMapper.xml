@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Mapper.StaffMapper" >
+  <resultMap id="BaseResultMap" type="Model.Bean.Staff" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="NVARCHAR" />
+    <result column="gender" property="gender" jdbcType="NCHAR" />
+    <result column="address" property="address" jdbcType="NVARCHAR" />
+    <result column="dept" property="dept" jdbcType="NCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, gender, address, dept
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from staff
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from staff
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="Model.Bean.Staff" >
+    insert into staff (id, name, gender, 
+      address, dept)
+    values (#{id,jdbcType=CHAR}, #{name,jdbcType=NVARCHAR}, #{gender,jdbcType=NCHAR}, 
+      #{address,jdbcType=NVARCHAR}, #{dept,jdbcType=NCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="Model.Bean.Staff" >
+    insert into staff
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="dept != null" >
+        dept,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=NCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=NVARCHAR},
+      </if>
+      <if test="dept != null" >
+        #{dept,jdbcType=NCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="Model.Bean.Staff" >
+    update staff
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=NCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=NVARCHAR},
+      </if>
+      <if test="dept != null" >
+        dept = #{dept,jdbcType=NCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Model.Bean.Staff" >
+    update staff
+    set name = #{name,jdbcType=NVARCHAR},
+      gender = #{gender,jdbcType=NCHAR},
+      address = #{address,jdbcType=NVARCHAR},
+      dept = #{dept,jdbcType=NCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

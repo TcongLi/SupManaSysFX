@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SupManaSysFx.iml" filepath="$PROJECT_DIR$/.idea/modules/SupManaSysFx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SupManaSysFx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/SupManaSysFx_main.iml" group="SupManaSysFx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SupManaSysFx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/SupManaSysFx_test.iml" group="SupManaSysFx" />
+    </modules>
+  </component>
+</project>
