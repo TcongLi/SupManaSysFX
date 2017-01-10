@@ -11,6 +11,9 @@
   <sql id="Base_Column_List" >
     id, name, gender, address, dept
   </sql>
+  <select id="selectAll" resultType="Model.Bean.Staff">
+    SELECT * FROM staff
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />

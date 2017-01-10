@@ -25,6 +25,7 @@
             </dataSource>
         </environment>
     </environments>
+
     <mappers>
         <package name="Mapper"/>
     </mappers>
