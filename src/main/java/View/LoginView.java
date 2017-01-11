@@ -80,6 +80,8 @@ public class LoginView implements FxmlView<LoginViewModel>,Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        userName.requestFocus();
+
         viewModel.subscribe(LoginViewModel.INVALIDPSW,(k,p)->{
             userName.setText("");
             passWord.setText("");

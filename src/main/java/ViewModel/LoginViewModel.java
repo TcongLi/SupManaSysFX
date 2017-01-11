@@ -31,7 +31,6 @@ public class LoginViewModel implements ViewModel {
                 publish(IDENTITYNOTSELECT,null);
             }else{
                 publish(VALID,null);
-                //TODO: 主界面入口
                 launchMainStage();
             }
         }else{
@@ -39,12 +38,16 @@ public class LoginViewModel implements ViewModel {
         }
     }
 
+    /**
+     * 主界面入口.
+     *
+     */
     private void launchMainStage(){
         ViewTuple<MainView,MainViewModel> vt = FluentViewLoader.fxmlView(MainView.class).load();
-        Stage mainStage = new Stage();
+        Stage mainStage = MainViewModel.getMainStage();
         mainStage.setTitle("供应管理系统");
         mainStage.setScene(new Scene(vt.getView()));
-        mainStage.setMaximized(true);
+        mainStage.sizeToScene();
         mainStage.show();
     }
 
