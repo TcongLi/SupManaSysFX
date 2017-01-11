@@ -13,7 +13,23 @@ public class StaffDTO {
     private StringProperty address = new SimpleStringProperty();
     private StringProperty dept = new SimpleStringProperty();
 
+    public StaffDTO(String id, String name, String gender, String address, String dept) {
+        this.id.set(id);
+        this.name.set(name);
+        this.gender.set(gender);
+        this.address.set(address);
+        this.dept.set(dept);
+    }
+
     public StaffDTO(StringProperty id, StringProperty name, StringProperty gender, StringProperty address, StringProperty dept) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.address = address;
+        this.dept = dept;
+    }
+
+    public StaffDTO(StringProperty name, StringProperty gender, StringProperty address, StringProperty dept) {
         this.id = id;
         this.name = name;
         this.gender = gender;

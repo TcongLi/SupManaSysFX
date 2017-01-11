@@ -13,7 +13,7 @@ public interface StaffMapper {
 
     Staff selectByPrimaryKey(String id);
 
-    Staff selectSelective(Staff record);
+    List<Staff> selectSelective(Staff record);
 
     List<Staff> selectAll();
 

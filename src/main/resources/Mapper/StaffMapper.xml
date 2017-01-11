@@ -70,20 +70,20 @@
   <select id="selectSelective" parameterType="Model.PO.Staff" resultType="Model.PO.Staff" >
     SELECT * FROM staff
    <where>
-     <if test="id != null" >
+     <!--if test="id != null" >
        id LIKE #{id}
-     </if>
+     </if-->
      <if test="name != null" >
-       and name like #{name}
+        name like '%${name}%'
      </if>
      <if test="gender != null" >
-       and gender like #{gender}
+       and gender like '%${gender}%'
      </if>
      <if test="address != null" >
-       and address like #{address}
+       and address like '%${address}%'
      </if>
      <if test="dept != null" >
-       and dept like #{dept}
+       and dept like '%${dept}%'
      </if>
    </where>
   </select>
