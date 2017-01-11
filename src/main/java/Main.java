@@ -1,5 +1,5 @@
 import Mapper.StaffMapper;
-import Model.Bean.Staff;
+import Model.PO.Staff;
 import Util.SqlSessionFactoryProvider;
 import View.LoginView;
 import ViewModel.LoginViewModel;

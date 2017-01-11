@@ -1,6 +1,6 @@
 package Mapper;
 
-import Model.Bean.Staff;
+import Model.PO.Staff;
 
 import java.util.List;
 

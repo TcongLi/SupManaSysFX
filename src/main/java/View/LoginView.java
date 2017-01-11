@@ -46,6 +46,7 @@ public class LoginView implements FxmlView<LoginViewModel>,Initializable {
     @FXML
     private javafx.scene.control.Label errorLabel;
 
+
     @FXML
     void onClickGithubLinkTL(ActionEvent event) {
         try {
@@ -62,7 +63,7 @@ public class LoginView implements FxmlView<LoginViewModel>,Initializable {
         new Thread(()->{
             try {
                 Thread.sleep(150);
-                System.exit(1);
+                System.exit(0);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -80,6 +81,8 @@ public class LoginView implements FxmlView<LoginViewModel>,Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         viewModel.subscribe(LoginViewModel.INVALIDPSW,(k,p)->{
+            userName.setText("");
+            passWord.setText("");
             errorLabel.setText("用户名或密码错误");
         });
 

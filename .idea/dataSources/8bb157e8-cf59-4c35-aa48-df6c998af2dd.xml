@@ -33,7 +33,7 @@
     </database>
     <schema id="11" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2017-01-10.00:33:46.433</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-01-10.20:48:42.433</IntrospectionTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -99,30 +99,30 @@
       <CreatedTimestamp>2017-01-08.17:52:55.697</CreatedTimestamp>
       <ModifiedTimestamp>2017-01-08.17:52:56.070</ModifiedTimestamp>
     </table>
-    <table id="29" parent="11" name="order_prod">
+    <table id="29" parent="11" name="order_comp">
+      <ObjectId>738101670</ObjectId>
+      <CreatedTimestamp>2017-01-08.17:53:08.993</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-10.20:48:32.793</ModifiedTimestamp>
+    </table>
+    <table id="30" parent="11" name="order_prod">
       <ObjectId>1202103323</ObjectId>
       <CreatedTimestamp>2017-01-08.18:06:12.310</CreatedTimestamp>
       <ModifiedTimestamp>2017-01-08.18:06:12.333</ModifiedTimestamp>
     </table>
-    <table id="30" parent="11" name="order_supplier">
-      <ObjectId>738101670</ObjectId>
-      <CreatedTimestamp>2017-01-08.17:53:08.993</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.17:53:22.363</ModifiedTimestamp>
-    </table>
-    <table id="31" parent="11" name="perchase_order">
-      <ObjectId>418100530</ObjectId>
-      <CreatedTimestamp>2017-01-08.17:52:28.127</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.17:53:09.003</ModifiedTimestamp>
-    </table>
-    <table id="32" parent="11" name="prod_repo">
+    <table id="31" parent="11" name="prod_repo">
       <ObjectId>354100302</ObjectId>
       <CreatedTimestamp>2017-01-08.17:52:02.550</CreatedTimestamp>
       <ModifiedTimestamp>2017-01-08.17:52:02.573</ModifiedTimestamp>
     </table>
-    <table id="33" parent="11" name="product">
+    <table id="32" parent="11" name="product">
       <ObjectId>34099162</ObjectId>
       <CreatedTimestamp>2017-01-08.17:51:47.187</CreatedTimestamp>
       <ModifiedTimestamp>2017-01-08.18:06:12.313</ModifiedTimestamp>
+    </table>
+    <table id="33" parent="11" name="purchase_order">
+      <ObjectId>418100530</ObjectId>
+      <CreatedTimestamp>2017-01-08.17:52:28.127</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-10.20:45:47.090</ModifiedTimestamp>
     </table>
     <table id="34" parent="11" name="repo">
       <ObjectId>2005582183</ObjectId>
@@ -439,7 +439,7 @@
       <Position>2</Position>
       <DataType>char(36)|0</DataType>
     </column>
-    <column id="88" parent="29" name="prod_id">
+    <column id="88" parent="29" name="comp_id">
       <Position>3</Position>
       <DataType>char(36)|0</DataType>
     </column>
@@ -448,34 +448,34 @@
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="90" parent="29" name="PK_order_prod">
+    <index id="90" parent="29" name="PK_order_supplier">
       <Position>1</Position>
       <ColNames>id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="91" parent="29" name="PK_order_prod">
-      <ObjectId>1218103380</ObjectId>
-      <CreatedTimestamp>2017-01-08.18:06:12.313</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.18:06:12.313</ModifiedTimestamp>
+    <key id="91" parent="29" name="PK_order_supplier">
+      <ObjectId>754101727</ObjectId>
+      <CreatedTimestamp>2017-01-08.17:53:09</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-08.17:53:09</ModifiedTimestamp>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>PK_order_prod</UnderlyingIndexName>
+      <UnderlyingIndexName>PK_order_supplier</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="92" parent="29" name="FK_order_prod_sale_order">
-      <ObjectId>1250103494</ObjectId>
-      <CreatedTimestamp>2017-01-08.18:06:12.317</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.18:06:12.317</ModifiedTimestamp>
+    <foreign-key id="92" parent="29" name="FK_order_supplier_perchase_order">
+      <ObjectId>786101841</ObjectId>
+      <CreatedTimestamp>2017-01-08.17:53:09</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-08.17:53:09</ModifiedTimestamp>
       <ColNames>order_id</ColNames>
-      <RefTableName>sale_order</RefTableName>
+      <RefTableName>purchase_order</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="93" parent="29" name="FK_order_prod_product">
-      <ObjectId>1234103437</ObjectId>
-      <CreatedTimestamp>2017-01-08.18:06:12.313</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.18:06:12.313</ModifiedTimestamp>
-      <ColNames>prod_id</ColNames>
-      <RefTableName>product</RefTableName>
+    <foreign-key id="93" parent="29" name="FK_order_supplier_component">
+      <ObjectId>1058102810</ObjectId>
+      <CreatedTimestamp>2017-01-08.17:53:22.360</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-08.17:53:22.360</ModifiedTimestamp>
+      <ColNames>comp_id</ColNames>
+      <RefTableName>component</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="94" parent="30" name="id">
@@ -487,7 +487,7 @@
       <Position>2</Position>
       <DataType>char(36)|0</DataType>
     </column>
-    <column id="96" parent="30" name="comp_id">
+    <column id="96" parent="30" name="prod_id">
       <Position>3</Position>
       <DataType>char(36)|0</DataType>
     </column>
@@ -496,34 +496,34 @@
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="98" parent="30" name="PK_order_supplier">
+    <index id="98" parent="30" name="PK_order_prod">
       <Position>1</Position>
       <ColNames>id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="99" parent="30" name="PK_order_supplier">
-      <ObjectId>754101727</ObjectId>
-      <CreatedTimestamp>2017-01-08.17:53:09</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.17:53:09</ModifiedTimestamp>
+    <key id="99" parent="30" name="PK_order_prod">
+      <ObjectId>1218103380</ObjectId>
+      <CreatedTimestamp>2017-01-08.18:06:12.313</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-08.18:06:12.313</ModifiedTimestamp>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>PK_order_supplier</UnderlyingIndexName>
+      <UnderlyingIndexName>PK_order_prod</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="100" parent="30" name="FK_order_supplier_perchase_order">
-      <ObjectId>786101841</ObjectId>
-      <CreatedTimestamp>2017-01-08.17:53:09</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.17:53:09</ModifiedTimestamp>
+    <foreign-key id="100" parent="30" name="FK_order_prod_sale_order">
+      <ObjectId>1250103494</ObjectId>
+      <CreatedTimestamp>2017-01-08.18:06:12.317</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-08.18:06:12.317</ModifiedTimestamp>
       <ColNames>order_id</ColNames>
-      <RefTableName>perchase_order</RefTableName>
+      <RefTableName>sale_order</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="101" parent="30" name="FK_order_supplier_component">
-      <ObjectId>1058102810</ObjectId>
-      <CreatedTimestamp>2017-01-08.17:53:22.360</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.17:53:22.360</ModifiedTimestamp>
-      <ColNames>comp_id</ColNames>
-      <RefTableName>component</RefTableName>
+    <foreign-key id="101" parent="30" name="FK_order_prod_product">
+      <ObjectId>1234103437</ObjectId>
+      <CreatedTimestamp>2017-01-08.18:06:12.313</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-08.18:06:12.313</ModifiedTimestamp>
+      <ColNames>prod_id</ColNames>
+      <RefTableName>product</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="102" parent="31" name="id">
@@ -531,67 +531,26 @@
       <DataType>char(36)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="103" parent="31" name="date">
-      <Position>2</Position>
-      <DataType>smalldatetime|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="104" parent="31" name="supplier_id">
-      <Position>3</Position>
-      <DataType>char(36)|0</DataType>
-    </column>
-    <column id="105" parent="31" name="sum">
-      <Position>4</Position>
-      <DataType>float|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="106" parent="31" name="PK_perchase_order">
-      <Position>1</Position>
-      <ColNames>id</ColNames>
-      <Clustering>1</Clustering>
-      <Unique>1</Unique>
-    </index>
-    <key id="107" parent="31" name="PK_perchase_order">
-      <ObjectId>434100587</ObjectId>
-      <CreatedTimestamp>2017-01-08.17:52:28.137</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.17:52:28.137</ModifiedTimestamp>
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>PK_perchase_order</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="108" parent="31" name="FK_perchase_order_supplier">
-      <ObjectId>450100644</ObjectId>
-      <CreatedTimestamp>2017-01-08.17:52:28.137</CreatedTimestamp>
-      <ModifiedTimestamp>2017-01-08.17:52:28.137</ModifiedTimestamp>
-      <ColNames>supplier_id</ColNames>
-      <RefTableName>supplier</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="109" parent="32" name="id">
-      <Position>1</Position>
-      <DataType>char(36)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="110" parent="32" name="prod_id">
+    <column id="103" parent="31" name="prod_id">
       <Position>2</Position>
       <DataType>char(36)|0</DataType>
     </column>
-    <column id="111" parent="32" name="repo_id">
+    <column id="104" parent="31" name="repo_id">
       <Position>3</Position>
       <DataType>char(36)|0</DataType>
     </column>
-    <column id="112" parent="32" name="storage">
+    <column id="105" parent="31" name="storage">
       <Position>4</Position>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="113" parent="32" name="PK_prod_repo">
+    <index id="106" parent="31" name="PK_prod_repo">
       <Position>1</Position>
       <ColNames>id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="114" parent="32" name="PK_prod_repo">
+    <key id="107" parent="31" name="PK_prod_repo">
       <ObjectId>370100359</ObjectId>
       <CreatedTimestamp>2017-01-08.17:52:02.557</CreatedTimestamp>
       <ModifiedTimestamp>2017-01-08.17:52:02.557</ModifiedTimestamp>
@@ -599,7 +558,7 @@
       <UnderlyingIndexName>PK_prod_repo</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="115" parent="32" name="FK_prod_repo_product">
+    <foreign-key id="108" parent="31" name="FK_prod_repo_product">
       <ObjectId>386100416</ObjectId>
       <CreatedTimestamp>2017-01-08.17:52:02.557</CreatedTimestamp>
       <ModifiedTimestamp>2017-01-08.17:52:02.557</ModifiedTimestamp>
@@ -607,7 +566,7 @@
       <RefTableName>product</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="116" parent="32" name="FK_prod_repo_repo1">
+    <foreign-key id="109" parent="31" name="FK_prod_repo_repo1">
       <ObjectId>402100473</ObjectId>
       <CreatedTimestamp>2017-01-08.17:52:02.560</CreatedTimestamp>
       <ModifiedTimestamp>2017-01-08.17:52:02.560</ModifiedTimestamp>
@@ -615,37 +574,37 @@
       <RefTableName>repo</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="117" parent="33" name="id">
+    <column id="110" parent="32" name="id">
       <Position>1</Position>
       <DataType>char(36)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="118" parent="33" name="name">
+    <column id="111" parent="32" name="name">
       <Position>2</Position>
       <DataType>nvarchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="119" parent="33" name="sales">
+    <column id="112" parent="32" name="sales">
       <Position>3</Position>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="120" parent="33" name="price">
+    <column id="113" parent="32" name="price">
       <Position>4</Position>
       <DataType>float|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="121" parent="33" name="info">
+    <column id="114" parent="32" name="info">
       <Position>5</Position>
       <DataType>text|0</DataType>
     </column>
-    <index id="122" parent="33" name="PK_product">
+    <index id="115" parent="32" name="PK_product">
       <Position>1</Position>
       <ColNames>id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="123" parent="33" name="PK_product">
+    <key id="116" parent="32" name="PK_product">
       <ObjectId>50099219</ObjectId>
       <CreatedTimestamp>2017-01-08.17:51:47.300</CreatedTimestamp>
       <ModifiedTimestamp>2017-01-08.17:51:47.300</ModifiedTimestamp>
@@ -653,6 +612,47 @@
       <UnderlyingIndexName>PK_product</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
+    <column id="117" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>char(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="118" parent="33" name="date">
+      <Position>2</Position>
+      <DataType>smalldatetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="33" name="supplier_id">
+      <Position>3</Position>
+      <DataType>char(36)|0</DataType>
+    </column>
+    <column id="120" parent="33" name="sum">
+      <Position>4</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="121" parent="33" name="PK_perchase_order">
+      <Position>1</Position>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="122" parent="33" name="PK_perchase_order">
+      <ObjectId>434100587</ObjectId>
+      <CreatedTimestamp>2017-01-08.17:52:28.137</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-08.17:52:28.137</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK_perchase_order</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="123" parent="33" name="FK_perchase_order_supplier">
+      <ObjectId>450100644</ObjectId>
+      <CreatedTimestamp>2017-01-08.17:52:28.137</CreatedTimestamp>
+      <ModifiedTimestamp>2017-01-08.17:52:28.137</ModifiedTimestamp>
+      <ColNames>supplier_id</ColNames>
+      <RefTableName>supplier</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
     <column id="124" parent="34" name="id">
       <Position>1</Position>
       <DataType>char(36)|0</DataType>

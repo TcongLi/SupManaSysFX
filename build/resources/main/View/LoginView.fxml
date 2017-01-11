@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -14,6 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
@@ -28,10 +30,10 @@
         <AnchorPane layoutX="31.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0">
             <children>
                 <JFXTextField fx:id="userName" focusColor="#805f98" labelFloat="true" layoutY="31.0" maxWidth="265.0" minWidth="209.0" prefHeight="29.0" prefWidth="265.0" promptText="用户名" unFocusColor="#4d4d4d" AnchorPane.bottomAnchor="140.0" />
-                <JFXPasswordField fx:id="passWord" focusColor="#805f98" labelFloat="true" layoutY="86.0" maxWidth="265.0" minWidth="209.0" prefHeight="29.0" prefWidth="265.0" promptText="密码" unFocusColor="#4d4d4d" AnchorPane.bottomAnchor="85.0" />
+                <JFXPasswordField fx:id="passWord" focusColor="#805f98" labelFloat="true" layoutY="86.0" maxWidth="265.0" minWidth="209.0" prefHeight="29.0" prefWidth="265.0" promptText="密码" unFocusColor="#4d4d4d" AnchorPane.bottomAnchor="95.0" />
                 <ButtonBar layoutX="51.0" layoutY="160.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0">
                     <buttons>
-                        <JFXButton fx:id="btnLogin" buttonType="RAISED" onAction="#onLogin" style="-fx-background-color: #805F98;" text="登陆" textFill="WHITE" />
+                        <JFXButton fx:id="btnLogin" defaultButton="true" buttonType="RAISED" onAction="#onLogin" style="-fx-background-color: #805F98;" text="登陆" textFill="WHITE" />
                         <JFXButton fx:id="btnExit" buttonType="RAISED" onAction="#onExit" style="-fx-background-color: #805F98;" text="退出" textFill="WHITE" />
                     </buttons>
                 </ButtonBar>
@@ -54,5 +56,6 @@
         </Text>
         <Label layoutX="348.0" layoutY="136.0" prefHeight="47.0" prefWidth="226.0" text="Developed by JT &amp; TcongLi(willy-wonka-@hotmail.com)" wrapText="true" />
         <Hyperlink fx:id="githubLinkTL" layoutX="348.0" layoutY="188.0" onAction="#onClickGithubLinkTL" text="https://github.com/TcongLi" textFill="#805f98" underline="true" wrapText="true" />
+      <Line endY="150.0" layoutX="303.0" layoutY="100.0" startY="-50.0" stroke="#434141" strokeWidth="0.5" />
     </children>
 </Pane>

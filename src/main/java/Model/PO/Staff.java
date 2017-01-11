@@ -1,4 +1,4 @@
-package Model.Bean;
+package Model.PO;
 
 public class Staff {
     private String id;

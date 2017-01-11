@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="Mapper.StaffMapper" >
-  <resultMap id="BaseResultMap" type="Model.Bean.Staff" >
+  <resultMap id="BaseResultMap" type="Model.PO.Staff" >
     <id column="id" property="id" jdbcType="CHAR" />
     <result column="name" property="name" jdbcType="NVARCHAR" />
     <result column="gender" property="gender" jdbcType="NCHAR" />
@@ -11,7 +11,7 @@
   <sql id="Base_Column_List" >
     id, name, gender, address, dept
   </sql>
-  <select id="selectAll" resultType="Model.Bean.Staff">
+  <select id="selectAll" resultType="Model.PO.Staff">
     SELECT * FROM staff
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
@@ -24,13 +24,13 @@
     delete from staff
     where id = #{id,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="Model.Bean.Staff" >
+  <insert id="insert" parameterType="Model.PO.Staff" >
     insert into staff (id, name, gender, 
       address, dept)
     values (#{id,jdbcType=CHAR}, #{name,jdbcType=NVARCHAR}, #{gender,jdbcType=NCHAR}, 
       #{address,jdbcType=NVARCHAR}, #{dept,jdbcType=NCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="Model.Bean.Staff" >
+  <insert id="insertSelective" parameterType="Model.PO.Staff" >
     insert into staff
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -67,7 +67,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="Model.Bean.Staff" >
+  <update id="updateByPrimaryKeySelective" parameterType="Model.PO.Staff" >
     update staff
     <set >
       <if test="name != null" >
@@ -85,7 +85,7 @@
     </set>
     where id = #{id,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="Model.Bean.Staff" >
+  <update id="updateByPrimaryKey" parameterType="Model.PO.Staff" >
     update staff
     set name = #{name,jdbcType=NVARCHAR},
       gender = #{gender,jdbcType=NCHAR},

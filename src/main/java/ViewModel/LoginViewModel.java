@@ -1,8 +1,13 @@
 package ViewModel;
 
+import View.MainView;
+import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewModel;
+import de.saxsys.mvvmfx.ViewTuple;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.util.Objects;
 
@@ -30,14 +35,17 @@ public class LoginViewModel implements ViewModel {
                 launchMainStage();
             }
         }else{
-            userName.setValue("");
-            passWord.setValue("");
             publish(INVALIDPSW,null);
         }
     }
 
     private void launchMainStage(){
-
+        ViewTuple<MainView,MainViewModel> vt = FluentViewLoader.fxmlView(MainView.class).load();
+        Stage mainStage = new Stage();
+        mainStage.setTitle("供应管理系统");
+        mainStage.setScene(new Scene(vt.getView()));
+        mainStage.setMaximized(true);
+        mainStage.show();
     }
 
     public String getUserName() {
