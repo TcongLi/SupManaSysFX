@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 /**
  * Created by L T on 2017/1/10.
  */
-public class MainView implements FxmlView<MainViewModel>,Initializable {
+public class MainView implements FxmlView<MainViewModel>, Initializable {
     @FXML
     private JFXButton staffManager;
 
@@ -53,6 +53,7 @@ public class MainView implements FxmlView<MainViewModel>,Initializable {
         staffStage.sizeToScene();
         staffStage.show();
     }
+
     @InjectViewModel
     MainViewModel viewModel;
 
@@ -60,7 +61,6 @@ public class MainView implements FxmlView<MainViewModel>,Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
 
 
 }

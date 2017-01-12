@@ -35,7 +35,7 @@ public interface StaffDAO {
         session.close();
     }
 
-    default void deleteStaffbyPK(String id) {
+    default void deleteStaffByPK(String id) {
         SqlSession session = SqlSessionFactoryProvider.getInstance().openSession();
         session.getMapper(StaffMapper.class).deleteByPrimaryKey(id);
         session.commit();
@@ -57,7 +57,7 @@ public interface StaffDAO {
         return list;
     }
 
-    default void updateStaff(StaffDTO staffDTO){
+    default void updateStaff(StaffDTO staffDTO) {
         SqlSession session = SqlSessionFactoryProvider.getInstance().openSession();
         session.getMapper(StaffMapper.class).updateByPrimaryKeySelective(new Staff(staffDTO.getId(), staffDTO.getName(), staffDTO.getGender(), staffDTO.getAddress(), staffDTO.getDept()));
         session.commit();

@@ -13,6 +13,11 @@ import javafx.collections.ObservableList;
  */
 public class StaffViewModel implements ViewModel {
 
+    /**
+     * 当前 Staff 的 id,用于 删改.
+     */
+    StringProperty id = new SimpleStringProperty();
+
     StringProperty name = new SimpleStringProperty();
     StringProperty gender = new SimpleStringProperty();
     StringProperty address = new SimpleStringProperty();
@@ -20,43 +25,74 @@ public class StaffViewModel implements ViewModel {
 
     ObservableList<StaffDTO> staffDTOS = FXCollections.observableArrayList();
 
-    public ObservableList<StaffDTO> loadData(){
-        staffDTOS.clear();
-        staffDTOS.addAll(new StaffDAO(){}.getAllStaffs());
-        return staffDTOS;
+    public void selectAllStaff() {
+        staffDTOS.setAll(new StaffDAO() {
+        }.getAllStaffs());
     }
 
-    public void insertStaff(){
-        if(gender.get()==null){
-            return;
-        }
-        new StaffDAO(){}.insertStaff(new StaffDTO(null,name,gender,address,dept));
+    public void selectStaff() {
+        staffDTOS.setAll(new StaffDAO() {
+        }.selectStaff(new StaffDTO(name, gender, address, dept)));
         clear();
     }
 
-    public void clear(){
+    public void deleteStaffByPK() {
+        new StaffDAO() {
+        }.deleteStaffByPK(id.get());
+        selectAllStaff();
+        clear();
+    }
+
+
+    public void insertStaff() {
+        // 性别未选中时,拦截该事件.
+        if (gender.get() == null) {
+            return;
+        }
+        new StaffDAO() {
+        }.insertStaff(new StaffDTO(null, name, gender, address, dept));
+        selectAllStaff();
+        clear();
+    }
+
+    public void updateStaff() {
+        if (gender.get() == null) {
+            return;
+        }
+        new StaffDAO() {
+        }.updateStaff(new StaffDTO(id, name, gender, address, dept));
+        selectAllStaff();
+        clear();
+    }
+
+    public void clear() {
         name.set("");
         gender.set("");
         address.set("");
         dept.set("");
     }
 
-    public void deleteStaffByPK(String id){
-        new StaffDAO(){}.deleteStaffbyPK(id);
+
+    //getter and setter------------------------
+
+    public String getId() {
+        return id.get();
     }
 
-    public ObservableList<StaffDTO> selectStaff(){
-        staffDTOS.clear();
-        staffDTOS.addAll(new StaffDAO(){}.selectStaff(new StaffDTO(name,gender,address,dept)));
+    public StringProperty idProperty() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id.set(id);
+    }
+
+    public ObservableList<StaffDTO> getStaffDTOS() {
         return staffDTOS;
     }
 
-    public void updateStaff(String id){
-        if(gender.get()==null){
-            return;
-        }
-        new StaffDAO(){}.updateStaff(new StaffDTO(new SimpleStringProperty(id),name,gender,address,dept));
-        clear();
+    public void setStaffDTOS(ObservableList<StaffDTO> staffDTOS) {
+        this.staffDTOS = staffDTOS;
     }
 
     public String getName() {

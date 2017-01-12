@@ -17,7 +17,12 @@ import java.util.UUID;
 /**
  * Created by L T on 2017/1/8.
  */
-public class Main extends Application{
+public class Main extends Application {
+    /**
+     * 程序入口点
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
         //Main m = new Main();
@@ -26,6 +31,7 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) {
+        //开启登陆界面
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("SupManaSysFx");
         ViewTuple<LoginView, LoginViewModel> viewTuple = FluentViewLoader.fxmlView(LoginView.class).load();
@@ -33,6 +39,7 @@ public class Main extends Application{
         primaryStage.sizeToScene();
         primaryStage.show();
     }
+
     public void test() {
 
         SqlSession session = SqlSessionFactoryProvider.getInstance().openSession();
@@ -44,5 +51,6 @@ public class Main extends Application{
         List<Staff> staffs = session.getMapper(StaffMapper.class).selectAll();
         staffs.forEach(staff -> System.out.println(staff.getId()));
         session.close();
+
     }
 }

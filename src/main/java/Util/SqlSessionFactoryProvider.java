@@ -13,8 +13,13 @@ import java.io.InputStream;
 public class SqlSessionFactoryProvider {
     private static SqlSessionFactory ourInstance;
 
+    /**
+     * 返回 SqlSessionFactory 的静态单例.
+     *
+     * @return SqlSessionFactory.
+     */
     public static SqlSessionFactory getInstance() {
-        if(ourInstance==null){
+        if (ourInstance == null) {
             new SqlSessionFactoryProvider();
         }
         return ourInstance;

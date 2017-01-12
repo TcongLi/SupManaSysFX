@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 /**
  * Created by L T on 2017/1/10.
  */
-public class LoginView implements FxmlView<LoginViewModel>,Initializable {
+public class LoginView implements FxmlView<LoginViewModel>, Initializable {
 
     @FXML
     private Pane rootScene;
@@ -60,7 +60,7 @@ public class LoginView implements FxmlView<LoginViewModel>,Initializable {
 
     @FXML
     void onExit(ActionEvent event) {
-        new Thread(()->{
+        new Thread(() -> {
             try {
                 Thread.sleep(150);
                 System.exit(0);
@@ -80,23 +80,33 @@ public class LoginView implements FxmlView<LoginViewModel>,Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        userName.requestFocus();
-
-        viewModel.subscribe(LoginViewModel.INVALIDPSW,(k,p)->{
+        /*
+         * 订阅事件:密码错误
+         */
+        viewModel.subscribe(LoginViewModel.INVALIDPSW, (k, p) -> {
             userName.setText("");
             passWord.setText("");
             errorLabel.setText("用户名或密码错误");
         });
 
-        viewModel.subscribe(LoginViewModel.IDENTITYNOTSELECT,(k,p)->{
+        /*
+         * 订阅事件:未选择类型
+         */
+        viewModel.subscribe(LoginViewModel.IDENTITYNOTSELECT, (k, p) -> {
             errorLabel.setText("请选择登陆类型");
         });
 
-        viewModel.subscribe(LoginViewModel.VALID,(k,p)->{
+        /*
+         * 订阅事件:密码正确
+         */
+        viewModel.subscribe(LoginViewModel.VALID, (k, p) -> {
             errorLabel.setText("");
             rootScene.getScene().getWindow().hide();
         });
 
+        /*
+         * 绑定属性
+         */
         userName.textProperty().bindBidirectional(viewModel.userNameProperty());
         passWord.textProperty().bindBidirectional(viewModel.passWordProperty());
 
@@ -104,6 +114,7 @@ public class LoginView implements FxmlView<LoginViewModel>,Initializable {
         identity.getItems().add("员工");
 
         identity.valueProperty().bindBidirectional(viewModel.identityProperty());
+
     }
 
 }

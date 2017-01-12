@@ -30,7 +30,6 @@ public class StaffDTO {
     }
 
     public StaffDTO(StringProperty name, StringProperty gender, StringProperty address, StringProperty dept) {
-        this.id = id;
         this.name = name;
         this.gender = gender;
         this.address = address;
