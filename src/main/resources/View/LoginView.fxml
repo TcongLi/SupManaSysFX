@@ -54,7 +54,7 @@
                 </LinearGradient>
             </fill>
         </Text>
-        <Label layoutX="348.0" layoutY="136.0" prefHeight="47.0" prefWidth="226.0" text="Developed by JT &amp; TcongLi(willy-wonka-@hotmail.com)" wrapText="true" />
+        <Label layoutX="348.0" layoutY="136.0" prefHeight="47.0" prefWidth="226.0" text="Developed by JT(2409647437@qq.com) &amp; TcongLi(willy-wonka-@hotmail.com)" wrapText="true" />
         <Hyperlink fx:id="githubLinkTL" layoutX="348.0" layoutY="188.0" onAction="#onClickGithubLinkTL" text="https://github.com/TcongLi" textFill="#805f98" underline="true" wrapText="true" />
       <Line endY="150.0" layoutX="303.0" layoutY="100.0" startY="-50.0" stroke="#434141" strokeWidth="0.5" />
     </children>

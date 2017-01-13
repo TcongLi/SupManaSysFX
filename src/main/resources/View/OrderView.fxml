@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.OrderView">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@/drawable/background.jpg" />
+         </image>
+      </ImageView>
+      <SplitPane dividerPositions="0.7535816618911175" opacity="0.5" prefHeight="500.0" prefWidth="800.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="164.0">
+               <children>
+                  <TableView fx:id="table1" layoutX="15.0" layoutY="14.0" prefHeight="212.0" prefWidth="578.0">
+                    <columns>
+                      <TableColumn fx:id="orderIdCol" prefWidth="75.0" text="订单号" />
+                      <TableColumn fx:id="dateCol" prefWidth="75.0" text="日期" />
+                        <TableColumn fx:id="phoneCol" prefWidth="75.0" text="电话" />
+                        <TableColumn fx:id="cusNameCol" prefWidth="75.0" text="姓名" />
+                        <TableColumn fx:id="genderCol" prefWidth="65.0" text="性别" />
+                        <TableColumn fx:id="addrCol" prefWidth="101.0" text="地址" />
+                        <TableColumn fx:id="mailCol" prefWidth="111.0" text="邮箱" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="table2" layoutX="14.0" layoutY="249.0" prefHeight="234.0" prefWidth="578.0">
+                    <columns>
+                      <TableColumn fx:id="prodNameCol" prefWidth="95.0" text="产品" />
+                      <TableColumn fx:id="priceCol" prefWidth="125.0" text="产品价格" />
+                        <TableColumn fx:id="infoCol" prefWidth="248.0" text="产品信息" />
+                        <TableColumn fx:id="amountCol" minWidth="0.0" prefWidth="109.0" text="数量" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="134.0">
+               <children>
+                  <Text fill="#6f6262" layoutX="63.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="订单" textAlignment="CENTER" wrappingWidth="68.240234375">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Text>
+                  <Line endX="75.0" endY="50.0" layoutX="110.0" layoutY="174.0" opacity="0.21" startX="-100.0" startY="50.0" />
+                  <Text fill="#6f6262" layoutX="63.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="详情" textAlignment="CENTER" wrappingWidth="68.240234375">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Text>
+                  <JFXComboBox fx:id="prodListComboBox" layoutX="25.0" layoutY="292.0" prefHeight="23.0" prefWidth="130.0" promptText="商品名称" />
+                  <JFXTextField fx:id="amountInput" focusColor="#805f98" labelFloat="true" layoutX="17.0" layoutY="337.0" maxWidth="147.0" minWidth="139.0" prefHeight="29.0" prefWidth="147.0" promptText="数量" />
+                  <JFXTextField fx:id="orderIdInput" editable="false" focusColor="#805f98" labelFloat="true" layoutX="17.0" layoutY="70.0" promptText="订单号" />
+                  <JFXComboBox fx:id="cusNameListComboBox" layoutX="23.0" layoutY="122.0" prefHeight="23.0" prefWidth="147.0" promptText="顾客姓名" />
+                  <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="183.0" onAction="#onAddOrder" prefHeight="23.0" prefWidth="58.0" style="-fx-background-color: #805f98;" text="添加" textFill="WHITE" />
+                  <JFXButton layoutX="102.0" layoutY="183.0" onAction="#onDeleteOrder" prefHeight="23.0" prefWidth="58.0" style="-fx-background-color: #ff0000;" text="删除" textFill="WHITE" />
+                  <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="391.0" onAction="#onAddItem" prefHeight="23.0" prefWidth="58.0" style="-fx-background-color: #805f98;" text="添加" textFill="WHITE" />
+                  <JFXButton buttonType="RAISED" layoutX="102.0" layoutY="391.0" onAction="#onUpdateItem" prefHeight="23.0" prefWidth="58.0" style="-fx-background-color: #805f98;" text="修改" textFill="WHITE" />
+                  <JFXButton layoutX="23.0" layoutY="432.0" onAction="#onDeleteItem" prefHeight="23.0" prefWidth="58.0" style="-fx-background-color: #ff0000;" text="删除" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

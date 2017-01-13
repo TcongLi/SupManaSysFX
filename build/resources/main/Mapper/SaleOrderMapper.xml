@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Mapper.SaleOrderMapper" >
+    <resultMap id="SaleOrderResult" type="Model.DTO.SaleOrderDTO" >
+        <id column="order_id" property="orderId"/>
+        <result column="date" property="date" />
+        <association property="customer" javaType="Model.DTO.CustomerDTO">
+            <id column="customer_id" property="customerId"/>
+            <result column="phone" property="phone"/>
+            <result column="name" property="name"/>
+            <result column="gender" property="gender"/>
+            <result column="address" property="address"/>
+            <result column="mail" property="mail"/>
+        </association>
+        <collection property="items" ofType="Model.DTO.SaleOrderItemDTO">
+            <id column="item_id" property="itemID"/>
+            <result column="amount" property="amount"/>
+            <association property="product" javaType="Model.DTO.ProductDTO">
+                <id column="product_id" property="prodId"/>
+                <id column="product_name" property="prodName"/>
+                <id column="product_price" property="prodPrice"/>
+                <id column="product_info" property="prodInfo"/>
+            </association>
+        </collection>
+
+    </resultMap>
+
+    <select id="selectAllSaleOrder" resultMap="SaleOrderResult">
+        SELECT
+        O.id      order_id,
+        O."date",
+        C.id      customer_id,
+        C.phone,
+        C.name,
+        C.gender,
+        C.address,
+        C.mail,
+        OP.id     item_id,
+        OP.amount,
+        P.id  product_id,
+        P.name  product_name,
+        P.price  product_price,
+        p.info  product_info
+        FROM sale_order O
+        LEFT OUTER JOIN customer C on O.customer_id = C.id
+        LEFT OUTER JOIN order_prod OP on O.id = OP.order_id
+        LEFT OUTER JOIN product P on OP.prod_id = P.id
+
+    </select>
+
+    <resultMap id="BaseResultMap" type="Model.PO.SaleOrder" >
+        <id column="id" property="id" jdbcType="CHAR" />
+        <result column="date" property="date" jdbcType="TIMESTAMP" />
+        <result column="customer_id" property="customerId" jdbcType="CHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, date, customer_id
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from sale_order
+        where id = #{id,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+        delete from sale_order
+        where id = #{id,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" parameterType="Model.PO.SaleOrder" >
+        insert into sale_order (id, date, customer_id
+        )
+        values (#{id,jdbcType=CHAR}, #{date,jdbcType=TIMESTAMP}, #{customerId,jdbcType=CHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="Model.PO.SaleOrder" >
+        insert into sale_order
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="date != null" >
+                date,
+            </if>
+            <if test="customerId != null" >
+                customer_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=CHAR},
+            </if>
+            <if test="date != null" >
+                #{date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="customerId != null" >
+                #{customerId,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="Model.PO.SaleOrder" >
+        update sale_order
+        <set >
+            <if test="date != null" >
+                date = #{date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="customerId != null" >
+                customer_id = #{customerId,jdbcType=CHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="Model.PO.SaleOrder" >
+        update sale_order
+        set date = #{date,jdbcType=TIMESTAMP},
+        customer_id = #{customerId,jdbcType=CHAR}
+        where id = #{id,jdbcType=CHAR}
+    </update>
+</mapper>
+

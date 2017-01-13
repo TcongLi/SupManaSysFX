@@ -5,7 +5,7 @@
 <generatorConfiguration>
 
     <!-- !!!! Driver Class Path !!!! -->
-    <classPathEntry location="D:\IdeaProjects\SupManaSysFx\libs\sqljdbc4-4.0.2206.100.jar"/>
+    <classPathEntry location="D:\IdeaProjects\SupManaSysFx\libs\sqljdbc42.jar"/>
 
     <context id="context" targetRuntime="MyBatis3">
         <commentGenerator>
@@ -41,17 +41,32 @@
         </javaClientGenerator>
 
         <!-- !!!! Table Configurations !!!! -->
-        <table tableName="staff"
+        <table tableName="product"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                enableUpdateByExample="false"/>
+        <table tableName="order_prod"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+        <!--table tableName="staff"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"/-->
+        <!--table tableName="sale_order"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"/-->
         <!--table tableName="customer"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
-               enableUpdateByExample="false"/>
-        <table tableName="supplier"
+               enableUpdateByExample="false"/-->
+        <!--table tableName="supplier"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
@@ -61,21 +76,13 @@
                enableDeleteByExample="false"
                enableSelectByExample="false"
                enableUpdateByExample="false"/>
-        <table tableName="product"
-               enableCountByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               enableUpdateByExample="false"/>
+
         <table tableName="component"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                enableUpdateByExample="false"/>
-        <table tableName="sale_order"
-               enableCountByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               enableUpdateByExample="false"/>
+
         <table tableName="purchase_order"
                enableCountByExample="false"
                enableDeleteByExample="false"

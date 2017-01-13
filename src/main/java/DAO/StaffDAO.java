@@ -21,10 +21,6 @@ public interface StaffDAO {
                 .map(item -> new StaffDTO(item.getId(), item.getName(), item.getGender(), item.getAddress(), item.getDept()))
                 .collect(Collectors.toList());
         session.close();
-
-        //for log
-        //list.forEach(i-> System.out.println(i.getName()));
-        //log
         return list;
     }
 

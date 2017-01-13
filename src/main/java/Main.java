@@ -1,5 +1,3 @@
-import Mapper.StaffMapper;
-import Model.PO.Staff;
 import Util.SqlSessionFactoryProvider;
 import View.LoginView;
 import ViewModel.LoginViewModel;
@@ -10,9 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.apache.ibatis.session.SqlSession;
-
-import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by L T on 2017/1/8.
@@ -44,13 +39,16 @@ public class Main extends Application {
 
         SqlSession session = SqlSessionFactoryProvider.getInstance().openSession();
 
-        String uuid = UUID.randomUUID().toString();
-        session.getMapper(StaffMapper.class).insert(new Staff(uuid, "zhang", "男", "M78", "EE"));
-        session.commit();
+        //String uuid = UUID.randomUUID().toString();
+        //session.getMapper(StaffMapper.class).insert(new Staff(uuid, "zhang", "男", "M78", "EE"));
+        //session.commit();
 
-        List<Staff> staffs = session.getMapper(StaffMapper.class).selectAll();
-        staffs.forEach(staff -> System.out.println(staff.getId()));
-        session.close();
+        //List<Staff> staffs = session.getMapper(StaffMapper.class).selectAll();
+        //staffs.forEach(staff -> System.out.println(staff.getId()));
+        //session.close();
+        //List<SaleOrderDTO>  s = session.getMapper(SaleOrderMapper.class).selectAllSaleOrder();
+        //s.forEach(i-> System.out.println(i.getDate()));
+
 
     }
 }

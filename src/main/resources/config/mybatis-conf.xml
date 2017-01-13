@@ -4,17 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+
     <settings>
         <setting name="cacheEnabled" value="true"/>
         <setting name="defaultStatementTimeout" value="3000"/>
         <!-- Enables automatic mapping from classic database column names A_COLUMN to camel case classic Java property names aColumn -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-
     </settings>
 
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
+
             <dataSource type="POOLED">
                 <property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
                 <property name="url" value="jdbc:sqlserver://localhost\MSSQLSERVER:1433;databaseName=jiangtian"/>

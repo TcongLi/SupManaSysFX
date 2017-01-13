@@ -42,7 +42,11 @@ public class MainView implements FxmlView<MainViewModel>, Initializable {
 
     @FXML
     void saleOrderManagerClicked(ActionEvent event) {
-
+        Stage orderStage = new Stage();
+        orderStage.setScene(new Scene(FluentViewLoader.fxmlView(OrderView.class).load().getView()));
+        orderStage.setTitle("订单管理");
+        orderStage.sizeToScene();
+        orderStage.show();
     }
 
     @FXML
