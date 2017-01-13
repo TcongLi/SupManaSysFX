@@ -17,5 +17,4 @@ dependencies {
     compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: '1.0.2'
     compile 'org.controlsfx:controlsfx:8.40.12'
     compile 'de.saxsys:mvvmfx:1.5.2'
-
 }
