@@ -2,8 +2,6 @@
 
 这是一个整合了 [mvvmFX](https://github.com/sialcasa/mvvmFX) 和 [Mybatis](http://www.mybatis.org/mybatis-3/) 的 DEMO, 模拟供应商管理系统, 用于数据库课程设计.
 
-co-developer : `阿姨(2409647437@qq.com)`
-
 ---------
 
 * GUI: JavaFX8 & [ControlsFX](http://fxexperience.com/controlsfx/) & [JFoenix](https://github.com/jfoenixadmin/JFoenix) & [SceneBuilder](http://gluonhq.com/labs/scene-builder/).
