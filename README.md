@@ -7,7 +7,7 @@
 * GUI: JavaFX8 & [ControlsFX](http://fxexperience.com/controlsfx/) & [JFoenix](https://github.com/jfoenixadmin/JFoenix) & [SceneBuilder](http://gluonhq.com/labs/scene-builder/).
 * 表示层架构模式: MVVM.
 * 持久层框架: Mybatis, [Mybatis-generator插件](http://generator.sturgeon.mopaas.com/).
-* DB: Sql Server (DLL在根目录).
+* DB: Sql Server (DDL在根目录).
 
 # 项目依赖
 用 Gradle 构建:
